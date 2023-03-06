@@ -30,15 +30,7 @@ resource "aws_ecs_service" "buspatrol" {
 
   network_configuration {
     subnets          = module.vpc.private_subnet_ids
-#    security_groups  = [aws_security_group.pulp_ecs.id]
-#    assign_public_ip = false
   }
-
-#  load_balancer {
-#    target_group_arn = aws_lb_target_group.content.arn
-#    container_name   = "pulp-content"
-#    container_port   = var.content_port
-#  }
 
   tags = {
     Name = "buspatrol-service"

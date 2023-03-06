@@ -78,7 +78,7 @@ resource "aws_iam_role_policy_attachment" "buspatrol_task_policy_attachment" {
   policy_arn = aws_iam_policy.buspatrol_task_policy.arn
 }
 
-resource "aws_iam_policy" "pulp_execution_policy" {
+resource "aws_iam_policy" "execution_policy" {
   name        = "buspatrol-execution-policy"
   description = "Allows Sample Scheduler ECS service to access other services"
   path        = "/"
@@ -127,7 +127,7 @@ resource "aws_iam_policy" "pulp_execution_policy" {
   )
 }
 
-resource "aws_iam_role_policy_attachment" "pulp_execution_policy_attachment" {
+resource "aws_iam_role_policy_attachment" "execution_policy_attachment" {
   role       = aws_iam_role.execution_role.name
-  policy_arn = aws_iam_policy.pulp_execution_policy.arn
+  policy_arn = aws_iam_policy.execution_policy.arn
 }
