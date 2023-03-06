@@ -1,7 +1,7 @@
 # ECS execution role
 resource "aws_iam_role" "execution_role" {
   name        = "buspatrol-role"
-  description = "Execution Role for Sample Scheduler ECS task"
+  description = "Execution Role"
   path        = "/"
   assume_role_policy = jsonencode(
     {
@@ -26,7 +26,7 @@ resource "aws_iam_role" "execution_role" {
 
 resource "aws_iam_role" "task_role" {
   name        = "buspatrol-task-role"
-  description = "Task Role for Sample Scheduler ECS task"
+  description = "Task Role"
   path        = "/"
   assume_role_policy = jsonencode(
     {
@@ -51,7 +51,7 @@ resource "aws_iam_role" "task_role" {
 
 resource "aws_iam_policy" "buspatrol_task_policy" {
   name        = "bus-patrol-task-policy"
-  description = "Allows Sample Scheduler ECS task to access other services"
+  description = "Policy for the ECS task"
   path        = "/"
   policy = jsonencode(
     {
@@ -80,7 +80,7 @@ resource "aws_iam_role_policy_attachment" "buspatrol_task_policy_attachment" {
 
 resource "aws_iam_policy" "execution_policy" {
   name        = "buspatrol-execution-policy"
-  description = "Allows Sample Scheduler ECS service to access other services"
+  description = "Allows the service to access other services within AWS."
   path        = "/"
   policy = jsonencode(
     {
